@@ -1,0 +1,55 @@
+package com.ssafy.board.model.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.ssafy.board.model.dao.BoardDao;
+import com.ssafy.board.model.dto.BoardDto;
+
+@Service
+public class BoardService {
+
+	private static final int COUNT_PER_PAGE = 10;
+
+	@Autowired
+	private BoardDao dao;
+
+	public Map<String, Object> makePage(int page) {
+		int totalCount = dao.selectTotalCount(); // 총 게시글의 갯수
+
+		int totalPage = totalCount / COUNT_PER_PAGE;
+		if (totalCount % COUNT_PER_PAGE > 0) { // 53 % 10 = 3이면 하나 더 필요함
+			totalPage++;
+		}
+
+		int startPage = (page - 1) / 10 * 10; // /10 * 10 하면 1의 자리가 떨어져 나가서 11, 12, 13, ... -> 10 되버림
+		int endPage = startPage + 9; // 시작이 11이면 화면 하단 끝 페이지는 20으로 맞춰놨음
+
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		int startRow = (page - 1) * COUNT_PER_PAGE; // (1-1)*10=0, (2-1)*10=10, (3-1)*10=20
+		List<BoardDto> boardList = dao.selectList(startRow, COUNT_PER_PAGE);
+
+		///// 페이지에 보여줄 모든 데이터 확보 완료 //////
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("startPage", startPage);
+		result.put("endPage", endPage);
+		result.put("currPage", page);
+		result.put("totalPage", totalPage);
+		result.put("boardList", boardList);
+		return result;
+
+	}
+
+	@GetMapping("/write")
+	public String write(BoardDto board) {
+		return "Write"; // WEB-INF/views/Write.jsp
+	}
+}

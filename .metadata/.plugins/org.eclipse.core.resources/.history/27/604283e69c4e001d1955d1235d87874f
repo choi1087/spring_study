@@ -1,0 +1,16 @@
+package lab2_3_1;
+
+public class BookAspect {
+	public void Before() {
+		System.out.println("화장실에 갑니다");
+	}
+	public void After-Return() {
+		System.out.println("화장실에 갑니다");
+	}
+	public void After-Throw() {
+		System.out.println("화장실에 갑니다");
+	}
+	public void After() {
+		System.out.println("화장실에 갑니다");
+	}
+}

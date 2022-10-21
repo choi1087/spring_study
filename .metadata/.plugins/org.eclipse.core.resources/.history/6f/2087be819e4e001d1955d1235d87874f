@@ -1,0 +1,7 @@
+package lab2_3_1;
+
+public class BookTest {
+	public static void main(String[] args) {
+		
+	}
+}

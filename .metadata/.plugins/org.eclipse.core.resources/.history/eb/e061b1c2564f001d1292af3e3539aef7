@@ -1,0 +1,13 @@
+package com.ssafy.board;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ssafy.board.model.service.BoardService;
+
+// 보통 테스트 클래스는 대상 클래스 하나당 테스트 클래스 하나씩 매핑해서 있음.
+// BoardDao -> BoardDaoTest, BoardService -> BoardServiceTest
+public class BoardServiceTest extends UnitTestConfig {
+
+	@Autowired
+	private BoardService boardService;
+}

@@ -1,0 +1,37 @@
+package com.ssafy.board.model.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.ssafy.board.model.dto.BoardDto;
+
+@Repository
+public class BoardDao {
+
+	@Autowired
+	private SqlSessionTemplate template;
+
+	public int insert(BoardDto board) {
+		return template.getMapper(BoardMapper.class).insert(board);
+	}
+
+	public List<BoardDto> selectList(@Param("start") int startRow, @Param("cnt") int count) {
+		return template.getMapper(BoardMapper.class).selectList(startRow, count);
+	}
+
+	public int selectTotalCount() {
+		return template.getMapper(BoardMapper.class).selectTotalCount();
+	}
+
+	public BoardDto selectOne(int bno) {
+		return template.getMapper(BoardMapper.class).selectOne(bno);
+	}
+
+	public int updateReadCount(int bno) {
+		return template.getMapper(BoardMapper.class).updateReadCount(bno);
+	}
+}

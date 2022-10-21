@@ -1,0 +1,29 @@
+package com.ssafy.board;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ssafy.board.model.BoardDto;
+import com.ssafy.board.model.service.BoardService;
+
+// 보통 테스트 클래스는 대상 클래스 하나당 테스트 클래스 하나씩 매핑해서 있음.
+// BoardDao -> BoardDaoTest, BoardService -> BoardServiceTest
+public class BoardServiceTest extends UnitTestConfig {
+
+	@Autowired
+	private BoardService boardService;
+
+	@Test
+	public void writeTest() throws Exception {
+		BoardDto dto = new BoardDto();
+		dto.setContent("내용");
+		dto.setSubject("제목인가요?");
+		dto.setUserId("ssafy");
+		dto.setUserName("김싸피");
+		int result = boardService.writeArticle(dto);
+		assertEquals(1, result); // 실행 결과 기대값, 실제 결과값
+
+	}
+}

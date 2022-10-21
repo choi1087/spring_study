@@ -1,0 +1,15 @@
+package ver2_aop_all;
+
+import java.util.Random;
+
+public class Girl implements Person{
+	public void makeFood() {
+
+		if (new Random().nextBoolean()) {
+			throw new Exception("불났다!~!");
+		}
+		System.out.println("라면을 만든다."); // 핵심 관심사항임
+		System.out.println("음식을 먹겠지!!!"); //핵심 이후에 실행
+		
+	}
+}

@@ -1,0 +1,18 @@
+package ver2_aop_all;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("ver2_aop_all/beans.xml");
+		
+		Person boy = ctx.getBean(Person.class);
+		boy.makeFood();
+		System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+		Girl girl = (Girl) ctx.getBean("jamin");
+		girl.makeFood();
+	}
+
+}

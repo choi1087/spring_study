@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+</head>
+<body>
+<%@include file="/WEB-INF/views/common/header.jsp" %>
+	SSAFY 8기 대전 5반 게시판에 오신것을 환영합니다.
+	<a href="${pageContext.request.contextPath }/notice/list?pgno=1&key=&word=">[게시판목록]</a>
+	<a href="${pageContext.request.contextPath }/member/login">[로그인하러가기]</a>
+</body>
+</html>

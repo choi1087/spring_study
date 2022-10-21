@@ -1,0 +1,7 @@
+package lab2_3_1;
+
+public class BookAspect {
+	public void aaafterThrowing() {
+		System.out.println("화장실에 갑니다");
+	}
+}

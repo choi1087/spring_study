@@ -1,0 +1,11 @@
+package lab2_3_1;
+
+public class Reader implements Person{
+
+	@Override
+	public void doSomething() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

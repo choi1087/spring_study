@@ -1,0 +1,16 @@
+package lab2_3_1;
+
+import java.util.Random;
+import lab2_3_1.RestroomException;
+
+public class Reader implements Person{
+
+	@Override
+	public void doSomething() throws RestroomException {
+		if (new Random().nextBoolean()) {
+			throw RestroomException;
+		}
+		System.out.println("치킨을 만든다."); // 핵심 관심사항임
+	}
+
+}

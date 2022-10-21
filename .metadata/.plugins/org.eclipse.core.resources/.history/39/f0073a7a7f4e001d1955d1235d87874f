@@ -1,0 +1,22 @@
+package ver3_configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class Beans {
+	@Bean
+	public Car sonata() {
+		Car c = new Car();
+		c.setTire(koreaTire());
+		return c;
+	}
+	@Bean
+	public Tire koreaTire() {
+		return new KoreaTire();
+	}
+	@Bean
+	public Tire chinaTire() {
+		return new ChinaTire();
+	}
+}

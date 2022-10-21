@@ -1,0 +1,17 @@
+package com.ssafy.board.model.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.ssafy.board.model.dto.MemberDto;
+
+@Repository
+public class MemberDao {
+	@Autowired
+	private SqlSessionTemplate template;
+
+	public MemberDto selectOne(String id, String pw) {
+		return template.getMapper(MemberMapper.class).selectOne(id, pw);
+	}
+}

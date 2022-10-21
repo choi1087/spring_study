@@ -1,0 +1,5 @@
+package ver3_aop_all.copy;
+
+public interface Person {
+	public void makeFood() throws Exception;
+}

@@ -1,0 +1,88 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+
+public class BoardDao {
+	public int insert(BoardDTO board) { // 글 작성
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		try {
+			conn = DBUtil.makeConnection();
+			
+		}catch(Exception ex) {
+			System.out.println("insert error");
+			ex.printStackTrace();
+		}finally {
+			DBUtil.close(rs, pstmt,conn);
+		}
+	}
+
+	public List<BoardDTO> selectList(int startRow, int count) { // 글목록
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		try {
+			conn = DBUtil.makeConnection();
+			
+		}catch(Exception ex) {
+			System.out.println("selectList error");
+			ex.printStackTrace();
+		}finally {
+			DBUtil.close(rs, pstmt,conn);
+		}
+	}
+
+	public int selectTotalCount() { // 글목록
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		try {
+			conn = DBUtil.makeConnection();
+			
+		}catch(Exception ex) {
+			System.out.println("selectTotalCount error");
+			ex.printStackTrace();
+		}finally {
+			DBUtil.close(rs, pstmt,conn);
+		}
+	}
+
+	public BoardDTO selectOne(int bno) { // 글읽기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		try {
+			conn = DBUtil.makeConnection();
+			
+		}catch(Exception ex) {
+			System.out.println("selectOne error");
+			ex.printStackTrace();
+		}finally {
+			DBUtil.close(rs, pstmt,conn);
+		}
+	}
+
+	public int updateReadCount(int bno) { // 글읽기
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		ResultSet rs = null;
+		try {
+			conn = DBUtil.makeConnection();
+			
+		}catch(Exception ex) {
+			System.out.println("updateReadCount error");
+			ex.printStackTrace();
+		}finally {
+			DBUtil.close(rs, pstmt,conn);
+		}
+	}
+}

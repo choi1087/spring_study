@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="Header.jsp"%>
+
+<a href="${root }/board/list">[게시판 목록]</a>
+<a href="${root }/board/write">[글 작성]</a>
+
+<c:choose>
+	<c:when test="${empty sessionScope.loginInfo }">
+
+	</c:when>
+
+	<c:otherwise>
+	</c:otherwise>
+</c:choose>

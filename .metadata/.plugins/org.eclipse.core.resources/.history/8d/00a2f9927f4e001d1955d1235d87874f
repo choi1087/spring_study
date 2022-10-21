@@ -1,0 +1,10 @@
+package ver3_configuration;
+
+
+//class BoardDaoOracle
+public class ChinaTire implements Tire {
+	@Override
+	public String getModel() {
+		return "대륙";
+	}
+}

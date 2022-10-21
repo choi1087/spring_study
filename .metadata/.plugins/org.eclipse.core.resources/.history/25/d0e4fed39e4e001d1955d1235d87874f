@@ -1,0 +1,7 @@
+package lab2_3_1;
+
+public class RestroomException extends Exception{
+	public void After_Throw() {
+		System.out.println("화장실에 갑니다.");
+	}
+}

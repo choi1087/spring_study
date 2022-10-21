@@ -1,0 +1,17 @@
+package com.ssafy.board.model.dao;
+
+import java.util.List;
+
+import com.ssafy.board.model.dto.BoardDto;
+
+public interface BoardMapper {
+	public int insert(BoardDto board);
+
+	public List<BoardDto> selectList(int startRow, int count);
+
+	public int selectTotalCount();
+
+	public BoardDto selectOne(int bno);
+
+	public int updateReadCount(int bno);
+}

@@ -1,0 +1,9 @@
+package ver2_aop_all;
+
+import java.util.Random;
+
+public class Girl implements Person{
+	public void makeFood() {
+		System.out.println("라면을 만든다."); // 핵심 관심사항임
+	}
+}

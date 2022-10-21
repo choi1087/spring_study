@@ -1,0 +1,46 @@
+package com.ssafy.board.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.ssafy.board.model.dto.BoardDto;
+import com.ssafy.board.model.service.BoardService;
+
+@Controller
+@RequestMapping("/board")
+public class BoardController {
+	@Autowired
+	private BoardService service;
+
+	@GetMapping("/list")
+	public ModelAndView list(@RequestParam(value = "page", defaultValue = "1") int page) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("List"); // WEB-INF/views/List.jsp
+		mv.addObject("boardPage", service.makePage(page));
+		return mv;
+	}
+
+	@GetMapping("/write")
+	public String write() {
+		return "Write";
+	}
+
+	@PostMapping("/write")
+	public String write(BoardDto board) {
+		if (service.write(board)) {
+			return "WriteSuccess";
+		} else {
+			return "WriteFail";
+		}
+	}
+
+	@GetMapping("/read")
+	public ModelAndView read(int bno) {
+		return new ModelAndView("Read", "board", service.read(bno));
+	}
+}
