@@ -16,6 +16,7 @@
 		<result property="job"/>
 		<result property="income"/>
 		<result property="gender"/>
+		<result column="join_date" property="joinDate"/>
 	</resultMap>		
 	
 	<!-- 아이디 중복 여부 확인 -->
@@ -27,8 +28,8 @@
 	
 	<!-- 회원가입 -->
 	<insert id="joinMember" parameterType="memberDto">
-		insert into member(id, pw, name, email, age, phone, job, income, gender)
-		values(#{id}, #{pw}, #{name}, #{email}, #{age}, #{phone}, #{job}, #{income}, #{gender})
+		insert into member(id, pw, name, email, age, phone, job, income, gender, join_date)
+		values(#{id}, #{pw}, #{name}, #{email}, #{age}, #{phone}, #{job}, #{income}, #{gender}, NOW())
 	</insert>
 	
 	<!-- 로그인 -->

@@ -21,4 +21,5 @@ public class MemberDto {
 	private String job;
 	private int income;
 	private char gender;
+	private String joinDate;
 }
